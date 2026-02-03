@@ -1,6 +1,7 @@
 # REPUBLIC-AI
 <img width="1500" height="500" alt="image" src="https://github.com/user-attachments/assets/1512180b-63b6-4c1e-a07f-34700a4ec5cf" />
 
+
 # System Requirements
 
 
@@ -10,6 +11,12 @@
 | **RAM**          | 16+  | 16++ GB                   |
 | **Disk**      | 500GB NVME SSD| 500+ NVME GB SDD                   |
 | **UBUNTU**      | UBUNTU 24.04 | UBUNTU 24.04 |
+
+
+### API: https://republic-api.zeycanode.com 
+### RPC: https://republic-rpc.zeycanode.com
+### https://republicai.io
+### https://discord.gg/republicai
 
 #  Update Server
 ```
