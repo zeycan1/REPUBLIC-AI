@@ -1,0 +1,64 @@
+# Stop the Node Service
+
+First, stop the running service safely:
+```
+sudo systemctl stop republicd
+```
+# Navigate to the Cosmovisor Genesis Binary Directory
+```
+cd $HOME/.republicd/cosmovisor/genesis/bin
+```
+# Download the New Binary (v0.2.0)
+
+Fetch the latest binary from the official repository:
+```
+wget -O republicd_v2 https://github.com/RepublicAI/networks/releases/download/v0.2.0/republicd-linux-amd64
+```
+# Verify Binary Integrity (SHA256)
+
+Validate the checksum to ensure file integrity:
+```
+echo "0788832a9f88fedfe1e2896391dd4bdb944aca85ae0632f3d30e09743a455b65  republicd_v2" | sha256sum -c
+```
+
+Expected output:
+
+OK
+
+# Grant Execute Permission
+```
+chmod +x republicd_v2
+```
+# Backup Old Binary & Activate the New One
+
+Create a backup of the previous version before replacing it:
+```
+mv republicd republicd_v0.1.0_backup
+mv republicd_v2 republicd
+```
+
+ Keep the backup in case a rollback is required.
+
+# Restart the Node Service
+```
+sudo systemctl daemon-reload
+sudo systemctl enable republicd
+sudo systemctl start republicd
+```
+# Monitor Logs
+
+Check logs to ensure the node starts correctly and resumes syncing:
+```
+sudo journalctl -u republicd -f
+```
+
+If block height progresses and matches the explorer, the update is successful.
+
+# Optional: Version Check
+```
+republicd version
+```
+
+Expected output:
+
+v0.2.0
