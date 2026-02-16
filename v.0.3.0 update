@@ -1,0 +1,20 @@
+
+mkdir -p $HOME/.republicd/cosmovisor/upgrades/v0.3.0/bin
+cd $HOME/.republicd/cosmovisor/upgrades/v0.3.0/bin
+
+
+wget -O republicd https://github.com/RepublicAI/networks/releases/download/v0.3.0/republicd-linux-amd64
+
+echo "bf0c88fda3ec40d8b991f87105c46ac6ddd7901d735213748de2c14e1b63a2a5  republicd" | sha256sum -c
+
+
+chmod +x republicd
+
+
+./republicd version
+
+sudo systemctl daemon-reload
+sudo systemctl restart republicd
+
+journalctl -u republicd -f -o cat
+
